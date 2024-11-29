@@ -19,3 +19,7 @@ The requirement to manage index files with only three nodes in memory at a time 
 ## Nov 28, 5:52 PM 
 
 Today, I began working on the foundation of the program by implementing the basic structure and an interactive menu. My focus was on creating a simple user interface that displays the available commands and handles user input. For now, I’ve only implemented the quit command to allow users to exit the program, while other commands display a placeholder message or I mgiht just keep it completely empty. This was a good starting point to get a feel for the program flow and ensure that the menu is user-friendly. I’m feeling good about the progress so far as the skeleton of the program is functional and ready for further development. Moving forward, I plan to implement the create and open commands.
+
+## Nov 28, 10:36 PM
+
+Adding this after pushing my code because I forgot to update delog. Anyways, I implemented the foundational functionality for managing index files. The create_index_file function allows me to create new index files with a properly formatted 512-byte header, and it ensures that existing files are not overwritten without confirmation. The open_index_file function lets me open and validate existing index files by checking their magic number for integrity. Together these commands establish the core file management operations needed to build upon for the rest of the project
