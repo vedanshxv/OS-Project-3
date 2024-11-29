@@ -1,4 +1,7 @@
+from file_manager import create_index_file, open_index_file, insert_into_index
+
 def main():
+    open_file = None  # Keeps track of the currently open file
     print("Welcome to the Index File Manager!")
     while True:
         print("\nMenu:")
@@ -13,7 +16,13 @@ def main():
         
         command = input("\nEnter your command: ").strip().lower()
         
-        if command == "quit":
+        if command == "create":
+            create_index_file()
+        elif command == "open":
+            open_file = open_index_file()
+        elif command == "insert":
+            insert_into_index(open_file)
+        elif command == "quit":
             print("Exiting the program. Goodbye!")
             break
         else:
