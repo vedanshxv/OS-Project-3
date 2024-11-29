@@ -22,4 +22,12 @@ Today, I began working on the foundation of the program by implementing the basi
 
 ## Nov 28, 10:36 PM
 
-Adding this after pushing my code because I forgot to update delog. Anyways, I implemented the foundational functionality for managing index files. The create_index_file function allows me to create new index files with a properly formatted 512-byte header, and it ensures that existing files are not overwritten without confirmation. The open_index_file function lets me open and validate existing index files by checking their magic number for integrity. Together these commands establish the core file management operations needed to build upon for the rest of the project
+I implemented the foundational functionality for managing index files. The create_index_file function creates new index files with a properly formatted 512-byte header, ensuring existing files are not overwritten without confirmation. The open_index_file function opens and validates index files by checking their magic number for integrity. These commands establish the core file management operations for the rest of the project.
+
+Thoughts so far: Managing binary files with proper validation has been insightful. I feel more confident working with file structures and understanding the importance of error handling. This step also highlighted the need for careful planning of B-tree operations moving forward.
+
+What I planned to accomplish this session: My goal was to implement the create and open commands to handle file creation and validation.
+
+Reflection on the session: I achieved my goal and tested the functionality thoroughly. Handling binary data and ensuring robust validation were challenges, but I now feel prepared to tackle the next steps.
+
+What I plan to do next: I plan to implement the insert command to add key-value pairs to the B-tree and save them to the index file efficiently.
