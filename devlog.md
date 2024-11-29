@@ -38,3 +38,13 @@ What I plan to do next: I plan to implement the insert command to add key-value 
 Before starting this session, I reviewed the requirements for implementing the insert command. My thoughts so far are that the project is becoming more complex as I move into operations involving the B-tree structure, but the initial groundwork on file management will make this manageable.  
 
 For this session I plan to implement insert command. My goal is to allow users to add key-value pairs into the index file, initializing the root node if it doesn't exist and setting up placeholder logic for future node handling. This will help prepare the structure for full B-tree operations in next coding sesisons.
+
+## Nov 29, 1:19 PM
+
+Post coding session: I implemented the insert command to add key-value pairs into the index file. This included validating the file header, creating a root node if none exists, and updating the header. Placeholder logic was added for handling insertion into existing trees, which will be expanded later.
+
+Thoughts so far: This session helped me understand the importance of correctly handling file structure and updates. While creating the root node was straightforward, handling existing nodes will require more planning and effort.
+
+Did I accomplish my goal for this session?: Yes, I implemented the basic functionality for inserting key-value pairs and creating the root node. Placeholder logic for existing nodes is in place.
+
+What I plan to do next: I will expand the insert logic to handle existing nodes and start implementing a basic search command to verify inserted keys.
