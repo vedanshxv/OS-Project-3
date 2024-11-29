@@ -31,3 +31,10 @@ What I planned to accomplish this session: My goal was to implement the create a
 Reflection on the session: I achieved my goal and tested the functionality thoroughly. Handling binary data and ensuring robust validation were challenges, but I now feel prepared to tackle the next steps.
 
 What I plan to do next: I plan to implement the insert command to add key-value pairs to the B-tree and save them to the index file efficiently.
+
+## Nov 29, 12:03 PM
+
+
+Before starting this session, I reviewed the requirements for implementing the insert command. My thoughts so far are that the project is becoming more complex as I move into operations involving the B-tree structure, but the initial groundwork on file management will make this manageable.  
+
+For this session I plan to implement insert command. My goal is to allow users to add key-value pairs into the index file, initializing the root node if it doesn't exist and setting up placeholder logic for future node handling. This will help prepare the structure for full B-tree operations in next coding sesisons.
