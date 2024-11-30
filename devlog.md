@@ -77,3 +77,18 @@ Pre coding session:
 I reviewed the current implementation of the insert command, which now supports basic tree traversal and duplicate key handling. My thoughts so far are that implementing the search command will be a significant step forward in validating the tree's functionality. Search will require traversing the tree to locate specific keys, which will help confirm that the B-tree structure is correctly maintained. Additionally need to starting work on the load functionality will be important to prepare the groundwork for reading and initializing the tree from a file.  
 
 For this session, I plan to fully implement the search command and begin work on the load command. My goal is to make the search function traverse the B-tree and return the value for a given key or indicate if the key is not found. For load, I aim to implement functionality to read and parse the file, initializing the B-tree structure in memory. 
+
+## Nov 30, 3:35 PM
+
+Post coding session:  
+
+I implemented the search command to traverse the B-tree and locate a specific key, returning its value or indicating if the key is not found. This required reading node data during traversal and determining the correct child block to follow. Also made progress on the load command which now reads the file header to initialize the root block ID. These updates significantly enhance the functionality of the project.  
+
+Thoughts so far:  
+Implementing the search logic helped me better understand the traversal process and how keys and values are stored within the tree. the load command was simpler to implement but important for initializing the b-tree structure. Handling edge cases, such as empty trees, was an important consideration.  
+
+Did I accomplish my goal for this session?:  
+yes, I fully implemented the search command and added the initial functionality for the load command. Both commands are now integrated into the menu system and ready for testing.  
+
+What I plan to do next:  
+I will refine the load command to initialize the entire B-tree structure in memory and expand the insert logic to handle node splits. 
