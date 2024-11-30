@@ -68,3 +68,12 @@ Yes, I expanded the insert logic to support traversal of existing nodes, added b
 
 What I plan to do next:
 I will refine the logic for splitting nodes and continue developing the B-tree structure. Next, I plan to implement a basic search function to validate inserted keys and enhance tree functionality.
+
+
+## Nov 30, 12:01 PM
+
+Pre coding session: 
+
+I reviewed the current implementation of the insert command, which now supports basic tree traversal and duplicate key handling. My thoughts so far are that implementing the search command will be a significant step forward in validating the tree's functionality. Search will require traversing the tree to locate specific keys, which will help confirm that the B-tree structure is correctly maintained. Additionally need to starting work on the load functionality will be important to prepare the groundwork for reading and initializing the tree from a file.  
+
+For this session, I plan to fully implement the search command and begin work on the load command. My goal is to make the search function traverse the B-tree and return the value for a given key or indicate if the key is not found. For load, I aim to implement functionality to read and parse the file, initializing the B-tree structure in memory. 
