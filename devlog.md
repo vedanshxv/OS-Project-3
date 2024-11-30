@@ -48,3 +48,9 @@ Thoughts so far: This session helped me understand the importance of correctly h
 Did I accomplish my goal for this session?: Yes, I implemented the basic functionality for inserting key-value pairs and creating the root node. Placeholder logic for existing nodes is in place.
 
 What I plan to do next: I will expand the insert logic to handle existing nodes and start implementing a basic search command to verify inserted keys.
+
+## Nov 29, 7:40 PM
+
+Pre coding session, I reviewed the current implementation of the insert command, which successfully handles the creation of a root node. My thoughts so far are that expanding this functionality to traverse and insert into existing nodes will be challenging, but the current structure makes it easier to build on. Managing tree traversal and finding the correct node for insertion while maintaining the B-tree's properties will be key.
+
+For this session, I plan to expand the insert logic to support traversal of existing nodes. My goal is to identify the correct node for a new key and add basic handling to check for duplicate keys or invalid insertion points. Placeholder logic for splitting nodes will also be added for future refinement.
