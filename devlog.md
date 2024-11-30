@@ -54,3 +54,17 @@ What I plan to do next: I will expand the insert logic to handle existing nodes 
 Pre coding session, I reviewed the current implementation of the insert command, which successfully handles the creation of a root node. My thoughts so far are that expanding this functionality to traverse and insert into existing nodes will be challenging, but the current structure makes it easier to build on. Managing tree traversal and finding the correct node for insertion while maintaining the B-tree's properties will be key.
 
 For this session, I plan to expand the insert logic to support traversal of existing nodes. My goal is to identify the correct node for a new key and add basic handling to check for duplicate keys or invalid insertion points. Placeholder logic for splitting nodes will also be added for future refinement.
+
+
+## Nov 29, 10:21 PM
+
+Post coding session: I expanded the insert command to include basic traversal of existing nodes, making it possible to locate the correct node for a new key. The function now reads keys from nodes during traversal and determines the next block to visit. Basic handling for duplicate keys has been implemented to ensure no duplicate insertions occur. Additionally, I added placeholder logic for handling node splitting, which will be refined in future sessions.
+
+Thoughts so far:
+Expanding the insert logic to traverse the B-tree was challenging but rewarding. Handling traversal helped me better understand the tree structure, but implementing actual splitting logic will require careful consideration.
+
+Did I accomplish my goal for this session?:
+Yes, I expanded the insert logic to support traversal of existing nodes, added basic duplicate key handling, and included placeholders for node splitting.
+
+What I plan to do next:
+I will refine the logic for splitting nodes and continue developing the B-tree structure. Next, I plan to implement a basic search function to validate inserted keys and enhance tree functionality.
