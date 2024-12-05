@@ -1,4 +1,5 @@
-MAGIC_NUMBER = b"4337PRJ3"
-HEADER_SIZE = 512
-BLOCK_SIZE = 512
-MAX_KEYS_PER_NODE = 20
+# constants.py
+
+MAGIC_NUMBER = b"4337PRJ3"  # 8-byte magic number
+BLOCK_SIZE = 512            # Block size in bytes
+MIN_DEGREE = 10             # Minimal degree of the B-Tree

@@ -109,3 +109,21 @@ For me this session will focus on completing and polishing the project:
 
 Goal for this session  
 The objective is to finish the project, making all commands fully functional and ready for submission.
+
+## Dec 4, 10:40 PM
+
+Post coding sessino: Final session
+
+Completed node splitting logic for insert, finalized the load command to initialize the full B-Tree from a file, and  tested all commands Refactored code for readability and added documentation.
+
+Thoughts So Far:
+Node splitting was challenging but finally did it. The project feels complete with functional commands and wiht the documentation.
+
+Did I Accomplish My Goal?
+Yes, the project is fully complete and ready for submission.
+
+Reflection on the Session:
+This session tied everything together
+
+What I Plan to Do Next:
+Submit the project 

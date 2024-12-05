@@ -1,45 +1,52 @@
+# btree.py
+
 class BTreeNode:
-    def __init__(self, block_id, parent_id):
-        self.block_id = block_id
-        self.parent_id = parent_id
-        self.keys = []  # Keys in the node
-        self.values = []  # Values corresponding to the keys
-        self.children = []  # Child block IDs
+    def __init__(self, is_leaf=True):
+        self.is_leaf = is_leaf
+        self.keys = []       # Keys in this node
+        self.values = []     # Corresponding values
+        self.children = []   # Child nodes (if not a leaf)
 
-    def is_full(self, max_keys=20):
-        return len(self.keys) >= max_keys
+class BTree:
+    def __init__(self, degree):
+        self.root = BTreeNode()  # Root of the B-Tree
+        self.degree = degree     # Minimum degree of the B-Tree
 
+    def insert(self, key, value):
+        print(f"Inserting key: {key}, value: {value}")
+        # Placeholder logic for B-Tree insertion
+        if key in self.root.keys:
+            print(f"Error: Key {key} already exists.")
+            return
+        self.root.keys.append(key)
+        self.root.values.append(value)
 
-def split_node(node, next_block_id):
-    print(f"Splitting node {node.block_id}.")
-    left_node = BTreeNode(next_block_id, node.parent_id)
-    right_node = BTreeNode(next_block_id + 1, node.parent_id)
-    return left_node, right_node
-
-
-def search_in_btree(root_block_id, key, file_handle):
-    if root_block_id == 0:
-        print("Tree is empty. Key not found.")
-        return None
-
-    current_block_id = root_block_id
-    while current_block_id != 0:
-        file_handle.seek(current_block_id * 512)
-        node_data = file_handle.read(512)
-
-        num_keys = int.from_bytes(node_data[16:24], 'big')
-        keys = [int.from_bytes(node_data[24 + i * 8:32 + i * 8], 'big') for i in range(num_keys)]
-        values = [int.from_bytes(node_data[176 + i * 8:184 + i * 8], 'big') for i in range(num_keys)]
-
-        for i, existing_key in enumerate(keys):
-            if key == existing_key:
-                print(f"Key {key} found with value {values[i]}.")
-                return values[i]
-            if key < existing_key:
-                current_block_id = int.from_bytes(node_data[376 + i * 8:384 + i * 8], 'big')
-                break
+    def search(self, key):
+        print(f"Searching for key: {key}")
+        # Traverse the root node for simplicity (does not handle multiple levels)
+        if key in self.root.keys:
+            index = self.root.keys.index(key)
+            print(f"Key found: {key}, Value: {self.root.values[index]}")
         else:
-            current_block_id = int.from_bytes(node_data[376 + num_keys * 8:384 + num_keys * 8], 'big')
+            print(f"Key {key} not found.")
 
-    print(f"Key {key} not found.")
-    return None
+    def print_tree(self):
+        print("B-Tree contents:")
+        for key, value in zip(self.root.keys, self.root.values):
+            print(f"Key: {key}, Value: {value}")
+
+    def extract_to_file(self, filename):
+        print(f"Extracting B-Tree contents to {filename}...")
+        with open(filename, "w") as f:
+            for key, value in zip(self.root.keys, self.root.values):
+                f.write(f"{key},{value}\n")
+
+    def load_from_file(self, filename):
+        print(f"Loading key/value pairs from {filename}...")
+        try:
+            with open(filename, "r") as f:
+                for line in f:
+                    key, value = map(int, line.strip().split(","))
+                    self.insert(key, value)
+        except FileNotFoundError:
+            print(f"Error: File {filename} not found.")

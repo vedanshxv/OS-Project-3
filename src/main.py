@@ -1,47 +1,70 @@
-from file_manager import create_index_file, open_index_file, insert_into_index, load_btree
-from btree import search_in_btree
+# main.py
+
+from file_manager import create_index_file, open_index_file
+from btree import BTree
+
+def print_menu():
+    print("Commands:")
+    print("create - Create a new index file")
+    print("open   - Open an existing index file")
+    print("insert - Insert a key/value pair into the index")
+    print("search - Search for a key in the index")
+    print("load   - Load key/value pairs from a file")
+    print("print  - Print all key/value pairs in the index")
+    print("extract - Extract all key/value pairs to a file")
+    print("quit   - Exit the program")
 
 def main():
-    open_file = None
-    root_block_id = None  # Keeps track of the current B-tree root
-
-    print("Welcome to the Index File Manager!")
+    current_file = None
+    current_btree = None
     while True:
-        print("\nMenu:")
-        print("1. Create")
-        print("2. Open")
-        print("3. Insert")
-        print("4. Search")
-        print("5. Load")
-        print("6. Print")
-        print("7. Extract")
-        print("8. Quit")
-        
-        command = input("\nEnter your command: ").strip().lower()
-        
+        print_menu()
+        command = input("Enter command: ").strip().lower()
         if command == "create":
-            create_index_file()
+            filename = input("Enter filename: ")
+            if create_index_file(filename):
+                current_file = filename
+                current_btree = BTree(degree=10)
         elif command == "open":
-            open_file = open_index_file()
+            filename = input("Enter filename: ")
+            if open_index_file(filename):
+                current_file = filename
+                current_btree = BTree(degree=10)
         elif command == "insert":
-            insert_into_index(open_file)
+            if current_btree:
+                key = int(input("Enter key: "))
+                value = int(input("Enter value: "))
+                current_btree.insert(key, value)
+            else:
+                print("No index file is open.")
         elif command == "search":
-            if open_file and root_block_id is not None:
-                key = int(input("Enter the key to search for: ").strip())
-                with open(open_file, "rb") as f:
-                    search_in_btree(root_block_id, key, f)
+            if current_btree:
+                key = int(input("Enter key: "))
+                current_btree.search(key)
             else:
-                print("No file or B-tree loaded.")
+                print("No index file is open.")
         elif command == "load":
-            if open_file:
-                root_block_id = load_btree(open_file)
+            if current_btree:
+                filename = input("Enter filename to load: ")
+                current_btree.load_from_file(filename)
             else:
-                print("No file is currently open. Please open a file first.")
+                print("No index file is open.")
+        elif command == "print":
+            if current_btree:
+                current_btree.print_tree()
+            else:
+                print("No index file is open.")
+        elif command == "extract":
+            if current_btree:
+                filename = input("Enter filename to extract to: ")
+                current_btree.extract_to_file(filename)
+            else:
+                print("No index file is open.")
         elif command == "quit":
-            print("Exiting the program. Goodbye!")
+            print("Exiting...")
             break
         else:
-            print("Command not implemented yet. Please try again.")
+            print("Invalid command.")
 
 if __name__ == "__main__":
     main()
