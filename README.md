@@ -1,4 +1,4 @@
-# OS-Project-3
+# Operating Systens-Project-3
 
 This project implements a B-Tree index file system that supports key-value storage and efficient operations such as insertion, search, and bulk loading. The data is persisted using index files and can be interacted with through a command-line interface.
 
